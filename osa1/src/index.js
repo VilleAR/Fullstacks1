@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Button = (props) =>
+    <button onClick={props.handleClick}>{props.text}</button>
 
 const Statistics = (props) => {
     if ((props.v1 + props.v2 + props.v3) === 0) {
@@ -44,10 +46,12 @@ const App = (props) => {
     return (
       <div>
         <h1>anna palautetta</h1>
+        
         <p></p>
-        <button onClick={() => setToValue(value1 + 1)}>hyvä</button>
-        <button onClick={() => setToValue2(value2 + 1)}>neutraali</button>
-        <button onClick={() => setToValue3(value3 + 1)}>huono</button>
+        <Button handleClick={() => setToValue(value1 + 1)} text ='hyvä' />
+        <Button handleClick={() => setToValue2(value2 + 1)} text ='neutraali' />
+        <Button handleClick={() => setToValue3(value3 + 1)} text ='huono' />
+ 
         <p></p>
         <Statistics v1 = {value1} v2 = {value2} v3 = {value3}/>
       </div>
